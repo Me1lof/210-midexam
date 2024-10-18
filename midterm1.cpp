@@ -85,4 +85,19 @@ public:
 
         if (!temp) return;
 
-        // This is a test comment to check Git status
+        if (temp->prev) {
+            temp->prev->next = temp->next;  
+        }
+        
+
+        if (temp->next) {
+            temp->next->prev = temp->prev;  
+        }
+        
+
+        delete temp;  // Free the memory for the node
+    }
+
+    void every_other_element() {
+        Node* current = head;  // Start from the head node
+        bool print = true;
