@@ -101,3 +101,13 @@ public:
     void every_other_element() {
         Node* current = head;  // Start from the head node
         bool print = true;
+
+       while(current) {
+            if (print) {
+                cout << current->data << " ";  // Print every other element
+            }
+            print = !print;  
+            current = current->next;  
+        }
+        cout << endl; 
+    }
