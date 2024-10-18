@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-// A structure to represent each node in the doubly linked list
+
 struct Node {
-    int data; // Holds the integer value of the node
+    int data; 
     Node* prev; // Pointer to the previous node in the list
     Node* next; // Pointer to the next node in the list
 
@@ -26,7 +26,7 @@ private:
     Node* tail; // Points to the last node
 
 public:
-    // Constructor initializes an empty doubly linked list
+    //  initializes an empty doubly linked list
     DoublyLinkedList() {
         head = nullptr;
         tail = nullptr;
@@ -88,19 +88,25 @@ public:
         if (temp->prev) {
             temp->prev->next = temp->next;  
         }
+        else {
+            head = temp->next;  // Update head if the first node is deleted
+        }
         
 
         if (temp->next) {
             temp->next->prev = temp->prev;  
         }
+        else {
+            tail = temp->prev;  // Update tail if the last node is deleted
+        }
         
 
-        delete temp;  // Free the memory for the node
+        delete temp;  
     }
 
     void every_other_element() {
         Node* current = head;  // Start from the head node
-        bool print = true;
+        bool print = true; //decides to print or not
 
        while(current) {
             if (print) {
